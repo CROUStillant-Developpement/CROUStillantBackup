@@ -13,8 +13,7 @@ load_dotenv(dotenv_path=".env")
 
 class Notifications:
     def __init__(self):
-        self.session = None
-        self.webhook = None
+        pass
 
 
     async def send(self, message: str) -> None:
@@ -23,9 +22,8 @@ class Notifications:
 
         :param message: Message à envoyer
         """
-        if not self.session:
-            self.session = ClientSession()
-            self.webhook = Webhook.from_url(environ.get("WEBHOOK_URL"), session=self.session)
+        session = ClientSession()
+        webhook = Webhook.from_url(environ.get("WEBHOOK_URL"), session=session)
 
         embed = Embed(
             title="CROUStillant Backup",
@@ -36,7 +34,9 @@ class Notifications:
         embed.set_footer(text=f"CROUStillant Développement © 2022 - {datetime.now(timezone("Europe/Paris")).year} | Tous droits réservés")
         embed.set_image(url="https://croustillant.bayfield.dev/banner-small.png")
         
-        await self.webhook.send(embed=embed)
+        await webhook.send(embed=embed)
+        
+        await session.close()
 
 
     def run(self, message: str) -> None:
