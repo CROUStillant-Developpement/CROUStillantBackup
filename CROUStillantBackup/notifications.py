@@ -30,7 +30,7 @@ class Notifications:
         embed = Embed(
             title="CROUStillant Backup",
             description=message,
-            color=environ.get("COLOUR"),
+            color=int(environ.get("COLOUR"), base=16),
             timestamp=datetime.now()
         )
         embed.set_footer(text=f"CROUStillant Développement © 2022 - {datetime.now(timezone("Europe/Paris")).year} | Tous droits réservés")
