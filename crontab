@@ -1,0 +1,1 @@
+30 3 * * * cd /CROUStillantBackup && /usr/local/bin/python /CROUStillantBackup/__main__.py >> /CROUStillantBackup/crontab.log
