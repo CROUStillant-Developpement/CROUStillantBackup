@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backup:
     container_name: backup
@@ -10,9 +8,3 @@ services:
       db:
         condition: service_healthy
     restart: unless-stopped
-    networks:
-      - CROUStillantNetwork
-
-networks:
-  CROUStillantNetwork:
-    external: true
