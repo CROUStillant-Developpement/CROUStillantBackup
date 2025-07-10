@@ -1,4 +1,0 @@
-docker==7.1.0
-pytz==2024.2
-discord.py==2.3.2
-python-dotenv==1.0.1

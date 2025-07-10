@@ -1,0 +1,12 @@
+[project]
+name = "croustillantbackup"
+version = "1.0.0"
+description = "CROUStillant Backup, automatically creates daily and monthly backups of the CROUStillant database."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "discord-py>=2.5.2",
+    "docker>=7.1.0",
+    "python-dotenv>=1.1.1",
+    "pytz>=2025.2",
+]
