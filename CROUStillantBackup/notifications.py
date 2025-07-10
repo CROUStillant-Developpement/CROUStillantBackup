@@ -23,7 +23,7 @@ class Notifications:
         :param message: Message à envoyer
         """
         session = ClientSession()
-        webhook = Webhook.from_url(environ.get("WEBHOOK_URL"), session=session)
+        webhook = Webhook.from_url(environ.get("BACKUP_WEBHOOK_URL"), session=session)
 
         embed = Embed(
             title="CROUStillant Backup",
