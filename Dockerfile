@@ -9,4 +9,6 @@ WORKDIR /CROUStillantBackup
 
 RUN uv sync --frozen --no-dev
 
-CMD ["uv", "run", "__main__.py"]
+RUN crontab crontab
+
+CMD ["crond", "-f"]
