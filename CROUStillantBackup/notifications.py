@@ -1,6 +1,8 @@
 import asyncio
 
-from discord import Webhook, Embed
+
+from .utils.views import WorkerView
+from discord import Webhook
 from aiohttp import ClientSession
 from os import environ
 from datetime import datetime
@@ -25,17 +27,15 @@ class Notifications:
         session = ClientSession()
         webhook = Webhook.from_url(environ.get("BACKUP_WEBHOOK_URL"), session=session)
 
-        embed = Embed(
-            title="CROUStillant Backup",
-            description=message,
-            color=int(environ.get("COLOUR"), base=16),
-            timestamp=datetime.now()
+        view = WorkerView(
+            content=f"## CROUStillant Backup\n\n{message}",
+            thumbnail_url="https://croustillant.menu/logo.png",
+            banner_url="https://croustillant.menu/banner-small.png",
+            footer_text=f"-# *CROUStillant Développement © 2022 - {datetime.now(timezone("Europe/Paris")).year} | Tous droits réservés.*"
         )
-        embed.set_footer(text=f"CROUStillant Développement © 2022 - {datetime.now(timezone("Europe/Paris")).year} | Tous droits réservés")
-        embed.set_image(url="https://croustillant.menu/banner-small.png")
-        
-        await webhook.send(embed=embed)
-        
+
+        await webhook.send(view=view)
+
         await session.close()
 
 
