@@ -31,7 +31,7 @@ class Notifications:
             content=f"## CROUStillant Backup\n\n{message}",
             thumbnail_url="https://croustillant.menu/logo.png",
             banner_url="https://croustillant.menu/banner-small.png",
-            footer_text=f"-# *CROUStillant Développement © 2022 - {datetime.now(timezone("Europe/Paris")).year} | Tous droits réservés.*"
+            footer_text=f"CROUStillant Développement © 2022 - {datetime.now(timezone("Europe/Paris")).year} | Tous droits réservés."
         )
 
         await webhook.send(view=view)
